@@ -1,16 +1,9 @@
 public class Solution {
     public int MaxProfit(int[] prices) {
-        int max = -1, min = int.MaxValue, diff = max - min;
+        int min = int.MaxValue, diff = -1;
         foreach(var price in prices) {
-            if (price > max)
-                max = price;
-                if (max - min > diff)
-                    diff = max - min;
-            if (price < min) 
-                min = price;
-                max = price;
-                if (max - min > diff)
-                    diff = max - min;
+            min = Math.Min(min, price);;
+            diff = Math.Max(diff, price - min);
         };
         return diff;
     }
