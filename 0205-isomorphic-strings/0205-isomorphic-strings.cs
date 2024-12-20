@@ -11,7 +11,7 @@ public class Solution {
                 if (mappings.ContainsValue(t[idx])) {
                     return false;
                 }
-                mappings[ch] = t[idx];
+                mappings.Add(ch, t[idx]);
             }
             else {
                 if (mappings[ch] != t[idx]){
