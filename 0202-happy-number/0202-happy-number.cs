@@ -1,14 +1,13 @@
 public class Solution {
     public bool IsHappy(int n) {
         var results = new HashSet<int>();
-        int curVal = n;
 
-        while (curVal != 1) {
-            if (results.Contains(curVal)) {
+        while (n != 1) {
+            if (results.Contains(n)) {
                 return false;
             }
-            results.Add(curVal);
-            curVal = sumSquareDigits(curVal);
+            results.Add(n);
+            n = sumSquareDigits(n);
         }
 
         return true;
