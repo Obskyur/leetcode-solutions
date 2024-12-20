@@ -4,8 +4,9 @@ public class Solution {
 
         for (int i = 0; i < nums.Length; i++) {
             int curVal = nums[i];
-            if (indexOfNum.ContainsKey(target - curVal)) {
-                return new int[] { indexOfNum[target - curVal], i };
+            int numNeeded = target - curVal;
+            if (indexOfNum.ContainsKey(numNeeded)) {
+                return new int[] { indexOfNum[numNeeded], i };
             }
             indexOfNum.TryAdd(curVal, i);
         }
