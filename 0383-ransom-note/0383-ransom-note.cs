@@ -12,7 +12,7 @@ public class Solution {
         };
 
         foreach (char c in ransomNote) {
-            if (magLetters.Contains(c)) {
+            if (magLetters.ContainsKey(c)) {
                 if (--magLetters[c] == 0) {
                     magLetters.Remove(c);
                 }
