@@ -1,18 +1,12 @@
 public class Solution {
     public bool IsSubsequence(string s, string t) {
-        if ( string.IsNullOrEmpty(s) ) return true;
-        for( int i = 0, j = 0; i < s.Length && j < t.Length; ) {
-            if ( s[i] != t[j] ) {
-                j++;
-                continue;
-            }
-            else {
+        int i = 0, j = 0;
+        while (i < s.Length && j < t.Length) {
+            if ( s[i] == t[j] ) {
                 i++;
-                j++;
             }
-            if ( i == s.Length )
-                return true;
+            j++;
         };
-        return false;
+        return i == s.Length;
     }
 }
