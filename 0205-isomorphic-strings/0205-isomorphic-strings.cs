@@ -3,20 +3,20 @@ public class Solution {
         var mappings = new Dictionary<char, char>();
         var mappedChars = new HashSet<char>();
 
-        if (s.Length != t.Length) {
-            return false;
-        }
-
-        foreach (var (ch, idx) in s.Select((ch,idx) => (ch,idx))) {
-            if (!mappings.ContainsKey(ch)) {
-                if (mappedChars.Contains(t[idx])) {
-                    return false;
-                }
-                mappings.Add(ch, t[idx]);
-                mappedChars.Add(t[idx]);
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (!mappings.ContainsKey(s[i]) && !mappedChars.Contains(t[i]))
+            {
+                mappings.Add(s[i], t[i]);
+                mappedChars.Add(t[i]);
             }
-            else {
-                if (mappings[ch] != t[idx]){
+            else if (!mappings.ContainsKey(s[i]) && mappedChars.Contains(t[i]))
+            {
+                return false;
+            }
+            else
+            {
+                if (mappings[s[i]] != t[i]) {
                     return false;
                 }
             }
