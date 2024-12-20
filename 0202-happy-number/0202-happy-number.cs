@@ -1,15 +1,14 @@
 public class Solution {
     public bool IsHappy(int n) {
-        var results = new Dictionary<int, int>();
+        var results = new HashSet<int>();
         int curVal = n;
 
         while (curVal != 1) {
-            int prevVal = curVal;
-            if (results.ContainsKey(curVal)) {
+            if (results.Contains(curVal)) {
                 return false;
             }
+            results.Add(curVal);
             curVal = sumSquareDigits(curVal);
-            results.Add(prevVal, curVal);
         }
 
         return true;
@@ -18,7 +17,8 @@ public class Solution {
     private int sumSquareDigits(int n) {
         int sum = 0;
         while (n > 0) {
-            sum += (int)Math.Pow(n % 10, 2);
+            int digit = n % 10;
+            sum += digit * digit;
             n /= 10;
         }
         return sum;
