@@ -7,6 +7,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0219-contains-duplicate-ii](https://github.com/Obskyur/leetcode-solutions/tree/master/0219-contains-duplicate-ii) |
+| [0228-summary-ranges](https://github.com/Obskyur/leetcode-solutions/tree/master/0228-summary-ranges) |
 ## Hash Table
 |  |
 | ------- |
