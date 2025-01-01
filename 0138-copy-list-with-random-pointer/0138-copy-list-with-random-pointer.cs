@@ -14,22 +14,22 @@ public class Node {
 */
 
 public class Solution {
-    public Node CopyRandomList(Node head) {
-        if (head is null) 
+    Dictionary<Node, Node> oldToNewNode = new Dictionary<Node, Node>();
+
+    public Node CopyRandomList(Node node) {
+        if (node is null)
             return null;
-        
-        var oldToNew = new Dictionary<Node, Node>();
-        Node curNode = head;
-        while (curNode is not null) {
-            oldToNew.Add(curNode, new Node(curNode.val));
-            curNode = curNode.next;
-        }
-        curNode = head;
-        while (curNode is not null) {
-            oldToNew[curNode].next = curNode.next is not null ? oldToNew[curNode.next] : null;
-            oldToNew[curNode].random = curNode.random is not null ? oldToNew[curNode.random] : null;
-            curNode = curNode.next;
-        }
-        return oldToNew[head];
+
+        oldToNewNode.Add(node, new Node(node.val));
+        CopyRandomList(node.next);
+        oldToNewNode[node].next = 
+            node.next is null 
+                ? null 
+                : oldToNewNode[node.next];
+        oldToNewNode[node].random = 
+            node.random is null 
+                ? null 
+                : oldToNewNode[node.random];
+        return oldToNewNode[node];
     }
 }
